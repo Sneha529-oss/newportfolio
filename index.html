@@ -1,0 +1,1146 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sneha Chaurasia | My Digital Portfolio</title>
+    <link rel="stylesheet"  href="styles.css"> <!--Linking CSS File-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <!-- Font Awesome -->
+    <style>
+        :root {
+            --primary: #5e35b1;  /* Deep purple */
+            --secondary: #3949ab; /* Indigo */
+            --accent: #ff7043;   /* Orange accent */
+            --dark: #1a237e;     /* Dark blue */
+            --light: #e8eaf6;    /* Light blue background */
+            --text: #333;        /* Main text color */
+            --white: #ffffff;    /* White */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Landing Page */
+        .landing {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%);
+            color: var(--white);
+            position: relative;
+        }
+        
+        .landing::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: var(--light);
+            clip-path: polygon(0 100%, 100% 100%, 100% 0);
+        }
+        
+        .landing h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s;
+        }
+        
+        .landing p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            max-width: 800px;
+            padding: 0 20px;
+            animation: fadeIn 2s;
+        }
+        
+        .landing-btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--white);
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            animation: fadeInUp 1s;
+            z-index: 1;
+        }
+        
+        .landing-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+        
+        header.scrolled {
+            background-color: rgba(255,255,255,0.95);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .hero-text {
+            flex: 1;
+        }
+        
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        /* About Section */
+        .section {
+            padding: 100px 0;
+            animation: fadeIn 1s;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .about-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        /* Skills Section */
+        .skills {
+            background-color: var(--white);
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .skill-card {
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        /* Projects Section */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .project-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+        
+        .project-info {
+            padding: 20px;
+        }
+        
+        .project-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var (--primary);
+        }
+        
+        .project-links {
+            margin-top: 15px;
+        }
+        
+        .project-links a {
+            margin-right: 15px;
+            font-size: 0.9rem;
+        }
+        
+        /* Education Section */
+        .education {
+            background-color: var(--light);
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 900px; /* Increased width for a larger timeline */
+            margin: 0 auto;
+            padding: 50px 0; /* Added padding for better spacing */
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px; /* Thickness of the vertical line */
+            background-color: var(--primary); /* Line color */
+            top: 0;
+            bottom: 0;
+            left: 50%; /* Center the line */
+            transform: translateX(-50%);
+            z-index: 0; /* Ensure it appears behind the timeline items */
+        }
+
+        .timeline-item {
+            padding: 20px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item.left {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-item.right {
+            left: 50%;
+            text-align: left;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--white);
+            border: 4px solid var(--primary);
+            border-radius: 50%;
+            top: 20px; /* Align with the vertical line */
+            z-index: 1;
+        }
+
+        .timeline-item.left::after {
+            right: -10px; /* Position the circle on the left side */
+        }
+
+        .timeline-item.right::after {
+            left: -10px; /* Position the circle on the right side */
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1; /* Ensure it appears above the vertical line */
+        }
+
+        .timeline-content h3 {
+            font-size: 1.5rem; /* Increased font size for better readability */
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .timeline-content p {
+            font-size: 1rem;
+            color: var(--text);
+            margin-bottom: 5px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: var(--white);
+        }
+        
+        .contact-container {
+            display: flex;
+            gap: 50px;
+            align-items: flex-start;
+        }
+        
+        .contact-info-card {
+            flex: 1;
+            background-color: var(--light); /* Light background */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-info-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .contact-detail p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+            color: var(--text);
+        }
+        
+        .contact-detail i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+            color: var(--accent); /* Orange color for icons */
+        }
+        
+        .contact-form {
+            flex: 1;
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .contact-form .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .contact-form .form-group input,
+        .contact-form .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .contact-form .form-group textarea {
+            height: 150px;
+        }
+        
+        .contact-form button {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .contact-form button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 20px 0;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInDown {
+            from { 
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .landing h1 {
+                font-size: 2.5rem;
+            }
+            
+            .landing p {
+                font-size: 1.2rem;
+            }
+            
+            .hero-content, .about-content, .contact-container {
+                flex-direction: column;
+            }
+            
+            .hero-text, .about-text, .contact-info {
+                margin-bottom: 30px;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 0;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+            
+            .left, .right {
+                left: 0;
+                text-align: left;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+
+        /* Navigation Bar */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+
+        header.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+            transform: scale(1.1);
+        }
+
+        /* Responsive Navigation Bar */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+        /* PDF Button Style */
+.btn-pdf {
+    display: inline-block;
+    background-color: #e74c3c; /* Red color for PDF */
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+    margin-right: 10px;
+}
+
+.btn-pdf:hover {
+    background-color: #c0392b; /* Darker red on hover */
+    transform: translateY(-2px);
+}
+
+.fa-file-pdf {
+    margin-right: 5px;
+}
+
+/* Orange Button Style */
+.btn-orange {
+    display: inline-block;
+    background-color: #ff7043; /* Orange color */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s;
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+.btn-orange:hover {
+    background-color: #e64a19; /* Darker orange on hover */
+    transform: translateY(-2px);
+}
+
+.fa-github {
+    margin-right: 5px;
+}
+/* Achievements Section */
+.achievements-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.achievement-card {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.achievement-card:hover {
+    transform: translateY(-10px);
+}
+
+.achievement-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: var(--primary);
+}
+
+.achievement-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--primary);
+}
+
+.achievement-card p {
+    font-size: 1rem;
+    color: var(--text);
+}
+/* Certifications Section */
+.certifications-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.certification-card {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.certification-card:hover {
+    transform: translateY(-10px);
+}
+
+.certification-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: var(--primary);
+}
+
+.certification-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--primary);
+}
+
+.certification-card p {
+    font-size: 1rem;
+    color: var(--text);
+}
+/* Center the Navigation Bar */
+.nav-links {
+    display: flex;
+    justify-content: center; /* Center the navigation links */
+    gap: 30px;
+    list-style: none;
+    font-weight: bold; /* Make the text bold */
+}
+
+/* Style for Navigation Links */
+.nav-links a {
+    font-weight: bold; /* Ensure the text is bold */
+    color: var(--text);
+    text-decoration: none;
+    transition: color 0.3s, transform 0.3s;
+}
+
+/* Hover Effect for Navigation Links */
+.nav-links a:hover {
+    color: var(--accent);
+    transform: scale(1.1);
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    gap: 20px; /* Add space between icons */
+    margin-top: 20px;
+}
+
+.social-links a {
+    font-size: 1.5rem; /* Increase icon size */
+    color: var(--primary); /* Use primary color for icons */
+    transition: transform 0.3s, color 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--accent); /* Change color on hover */
+    transform: scale(1.2); /* Slightly enlarge on hover */
+}
+    </style>
+</head>
+<body>
+    <nav></nav>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#achievements">My Achievements</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+    </nav>
+    <!-- Landing Page -->
+    <section class="landing" id="landing">
+        <h1>Welcome to My Portfolio</h1>
+        <p>Discover my engineering journey, projects, and skills as a first-year student passionate about innovation</p>
+        <a href="#home" class="landing-btn">Get Started</a>
+    </section>
+
+    <header id="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">Sneha Chaurasia</div>
+                <ul class="nav-links">
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#skills">My Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <div class="logo">Alex Carter</div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Hi, I'm <span style="color: var(--accent);">Sneha Chaurasia</span></h1>
+                    <p class="tagline">First-Year Engineering Student | Aspiring Innovator</p>
+                    <p>Passionate about mathematics, coding, and sustainable engineering solutions. Currently, I'm exploring the world of AIML engineering. I'm also learning Python, HTML, and CSS to build innovative projects.</p>
+                    <a href="#projects" class="btn">View My Projects</a>
+                </div>
+                <div class="hero-image">
+                    <img src="images/image/Sneha1.png" alt="Engineering Student">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Curious. Creative. Driven. </h2>
+    <p class="tagline">AI Engineering Student | Problem-Solver | Future Tech Leader</p>
+    
+    <p>I'm a first-year engineering student at MIT AOE, passionate about solving real-world problems through technology. My journey began in high school, where I fell in love with coding and programming.</p>
+    
+    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 20px 0;">
+        <p>💻 <strong>Coding:</strong> Python | HTML | CSS | SQL | Javascript </p>
+        <p>🧠 <strong>Exploring:</strong> Computer Vision | Ethical AI | Generative Models</p>
+        <p>🌱 <strong>Growing:</strong> Through hackathons, research papers, and midnight debugging sessions</p>
+    </div>
+    
+    <h3>As one of few women in my engineering batch, I'm determined to prove that sarees and soldering irons make an unbeatable combination.</h3>
+    <p>I like to read books and listen to almost all types of songs.</p>
+    <p>I even like to ride bycicle and play badminton ,which I try to do it in a week.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section skills" id="skills">
+        <div class="container">
+            <h2 class="section-title">My Skills</h2>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Programming</h3>
+                    <p>Python, C, C++, SQL. Basic web development (HTML/CSS/JS).</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3>3D Modeling</h3>
+                    <p>SolidWorks with AI, Fusion 360 for design and prototyping.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Mathematics</h3>
+                    <p>Machine learning problem solving skills using mathematics.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Data Analysis</h3>
+                    <p>Excel, Tableau ,Orange and Python for engineering data processing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            <div class="projects-container">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="images/image/portfolio.png" alt="MY Portfolio">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">My Digital Portfolio</h3>
+                        <p>This is a project about myself where you can get to know me better.</p>
+                        <div class="project-links">
+                            <a href="snehaport.html" target="_blank" class="btn-orange">
+                            <i class="fab fa-github"></i> Click here</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="3D Printer">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">DATA Analysis</h3>
+                        <p>This is a project where we created different charts on the basis of analysis made.</p>
+                        <div class="project-links">
+                            <a href="images/image/Data analysis.pdf" target="_blank" class="btn-pdf">
+                                <i class="fas fa-file-pdf"></i> View Project PDF
+                            </a>
+                            <a href="#" class="btn-code">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1551269901-5c5e14c25df7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Python App">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Project on Quantum Techonology</h3>
+                        <p>Quantum Computiong Solutions for Smart Cities and its brief overview.</p>
+                        <div class="project-links">
+                            <a href="https://piyush-ouch.github.io/quantum-computing/" target="_blank" class="btn-pdf">
+                                <i class="fas fa-file-pdf"></i> View Project Link
+                            </a>
+                            <a href="#" class="btn-code">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section education" id="education">
+        <div class="container">
+            <h2 class="section-title">My Education</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>MIT Academy Of Engineering</h3>
+                        <p><strong>BTech CSE- AIML Engineering</strong></p>
+                        <p>2024 - Present</p>
+                        <p>Courses: EEE, Programming for Engineers(Python), Calculus, Physics, Discrete Structure</p>
+                        <p>CGPA Sem-1: 8.52 </p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>PACE Junior Science College,Dadar</h3>
+                        <p><strong>Higher Studies & Entrance Program</strong></p>
+                        <p>2022-2024</p>
+                        <p>Studied 11th and 12th and for JEE(mains),MHTCET,BITSAT,etc exams.</p>
+                        <p>Score: 83.00 % </p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Holy Cross High School</h3>
+                        <p><strong>Primary and Secondary school</strong></p>
+                        <p>2010 - 2022</p>
+                        <p>Completed my SSC board & Girl President of Green house.</p>
+                        <p>Score: 95.20% </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- Achievements Section -->
+<section class="section" id="achievements">
+    <div class="container">
+        <h2 class="section-title">My Achievements</h2>
+        <div class="achievements-container">
+            <div class="achievement-card">
+                <div class="achievement-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h3>High SChool Winner</h3>
+                <p>Achieved the highest score in girls during my 10th-grade board exams.Stood 2nd in overall secondary school.</p>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-icon">
+                    <i class="fas fa-medal"></i>
+                </div>
+                <h3>Top Scorer</h3>
+                <p>Achieved the score of  93.9 %ile in JEE MAINS & 94.83 %ile in MHT CET. I was also was able to clear exams like BITSAT,VITEEE,etc</p>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-icon">
+                    <i class="fas fa-award"></i>
+                </div>
+                <h3>Best Innovator</h3>
+                <p>Recognized as the "Best Innovator" for creating a sustainable project during a college competition.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Certifications Section -->
+<section class="section" id="certifications">
+    <div class="container">
+        <h2 class="section-title">My Certifications</h2>
+        <div class="certifications-container">
+            <div class="certification-card">
+                <div class="certification-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <h3>Python Essentials-1</h3>
+                <p>Completed the "Python Essentials-1" course by the Cisco Networking Limited. It was a beginner-level introduction.</p>
+                <a href="images/image/Python-1_certificate.png" target="_blank" class="btn-orange">View Certificate</a>
+            </div>
+            <div class="certification-card">
+                <div class="certification-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <h3>Python Essentials-2</h3>
+                <p>Completed the "Python Essentials-2". It was an intermediate-level course.</p>
+                <a href="images/image/Python-2_certificate.png" target="_blank" class="btn-orange">View Certificate</a>
+            </div>
+            <div class="certification-card">
+                <div class="certification-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>HackerRank</h3>
+                <p>Achieved certifications in Python and Problem Solving on HackerRank.</p>
+                <a href="images/image/hackerrank-certificate.png" target="_blank" class="btn-orange">View Certificate</a>
+            </div>
+            <div class="certification-card">
+                <div class="certification-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3>Great Learning</h3>
+                <p>Completed the "Introduction to Artificial Intelligence" course on Great Learning.</p>
+                <a href="images/image/Introduction_to_AI_certificate.png" target="_blank" class="btn-orange">View Certificate</a>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Let's Connect!</h3>
+                    <p>I'm open to internships, research opportunities, or just chatting about engineering!</p>              '
+                    <p>Feel free to reach out to me through the form below or connect with me on social media.</p>
+                    <p>I'm always eager to learn and collaborate on exciting projects! 
+                    </p>
+                    <div class="contact-info-card">
+                        <h3>Contact Information</h3>
+                        <div class="contact-detail">
+                            <p><i class="fas fa-map-marker-alt"></i> Location: Alandi, Pune, Maharashtra, India</p>
+                            <p><i class="fas fa-envelope"></i> Email: sneha.chaurasia0306@gmail.com</p>
+                            <p><i class="fas fa-phone"></i> Phone: +91 7039742115</p>
+                            <p><i class="fas fa-clock"></i> Working Hours: Monday - Friday: 9AM - 5PM</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/sneha-chaurasia-739b55337?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/sneha-chaurasia" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://twitter.com/sneha-chaurasia" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/sneha.00347?igsh=MTkxY29jN3FqMWwxNQ==" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Sneha Chaurasia. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for all links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
